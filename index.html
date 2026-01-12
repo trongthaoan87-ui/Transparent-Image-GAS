@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Cutout AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+                950: '#082f49',
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      .checkerboard {
+        background-image: linear-gradient(45deg, #eee 25%, transparent 25%), 
+                          linear-gradient(-45deg, #eee 25%, transparent 25%), 
+                          linear-gradient(45deg, transparent 75%, #eee 75%), 
+                          linear-gradient(-45deg, transparent 75%, #eee 75%);
+        background-size: 20px 20px;
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      }
+      .dark .checkerboard {
+        background-image: linear-gradient(45deg, #1f2937 25%, transparent 25%), 
+                          linear-gradient(-45deg, #1f2937 25%, transparent 25%), 
+                          linear-gradient(45deg, transparent 75%, #1f2937 75%), 
+                          linear-gradient(-45deg, transparent 75%, #1f2937 75%);
+      }
+      @keyframes shine {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+      }
+      .animate-shine {
+        position: relative;
+        overflow: hidden;
+      }
+      .animate-shine::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shine 2s infinite;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "lodash": "https://esm.sh/lodash-es@^4.17.21",
+    "@imgly/background-removal": "https://esm.sh/@imgly/background-removal@1.4.5"
+  }
+}
+</script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+    <div id="root"></div>
+</body>
+</html>

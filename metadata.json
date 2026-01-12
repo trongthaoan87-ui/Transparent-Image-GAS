@@ -1,0 +1,5 @@
+{
+  "name": "Magic Cutout - AI Background Remover",
+  "description": "A high-performance batch image background removal tool powered by AI and Gemini. Extract subjects with transparency instantly.",
+  "requestFramePermissions": []
+}
